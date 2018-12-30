@@ -1,0 +1,60 @@
+<!DOCTYPE tiles-definitions PUBLIC
+"-//Apache Software Foundation//DTD Tiles Configuration 1.3//EN"
+"http://struts.apache.org/dtds/tiles-config_1_3.dtd"> 
+<tiles-definitions>
+	<definition name="baselayout" path="/views/tiles/layouts/baselayout.jsp">
+		<put name="title" value="" />
+		<put name="header" value="/views/tiles/includes/header.jsp" />
+		<put name="menu" value="" />
+		<put name="body" value="" />
+		<put name="footer" value="/views/tiles/includes/footer.jsp" />
+	</definition>
+	<definition name="login" extends="baselayout">
+		<put name="title" value="Login to Book Store" />
+		<put name="body" value="/views/login.jsp" />
+	</definition>
+	<definition name="register" extends="baselayout">
+		<put name="title" value="Register to Bug Store" />
+		<put name="body" value="/views/register.jsp" />
+	</definition>
+	<definition name="booklist" extends="baselayout">
+		<put name="title" value="Bug Store" />
+		<put name="menu" value="/views/tiles/includes/menu.jsp" />
+		<put name="body" value="/views/allbook.jsp" />
+	</definition>
+	<definition name="cart" extends="baselayout">
+		<put name="title" value="Your cart" />
+		<put name="menu" value="/views/tiles/includes/menu.jsp" />
+		<put name="body" value="/views/cart.jsp"/>
+	</definition>
+	<definition name="amendbook" extends="baselayout">
+		<put name="title" value="Amend Book" />
+		<put name="menu" value="/views/tiles/includes/menu.jsp" />
+		<put name="body" value="/views/addbook.jsp"/>
+	</definition>
+	<definition name="bookdetails" extends="baselayout">
+		<put name="title" value="Book Details"/>
+		<put name="menu" value="/views/tiles/includes/menu.jsp" />
+		<put name="body" value="/views/bookdetails.jsp"/>
+	</definition>
+	<definition name="results" extends="baselayout">
+		<put name="title" value="Search result"/>
+		<put name="menu" value="/views/tiles/includes/menu.jsp" />
+		<put name="body" value="/views/searchresult.jsp"/>
+	</definition>
+	<definition name="invoice" extends="baselayout">
+		<put name="title" value="Invoice"></put>
+		<put name="menu" value="/views/tiles/includes/menu.jsp"></put>
+		<put name="body" value="/views/invoice.jsp"></put>
+	</definition>
+	<definition name="statistic" extends="baselayout">
+		<put name="title" value="Statistics"></put>
+		<put name="menu" value="/views/tiles/includes/menu.jsp"></put>
+		<put name="body" value="/views/statistic.jsp"></put>
+	</definition>
+	<definition name="detailstatistic" extends="baselayout">
+		<put name="title" value="DetailStatistics"></put>
+		<put name="menu" value="/views/tiles/includes/menu.jsp"></put>
+		<put name="body" value="/views/detailstatistic.jsp"></put>
+	</definition>
+</tiles-definitions>

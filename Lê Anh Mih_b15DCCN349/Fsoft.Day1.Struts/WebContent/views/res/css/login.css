@@ -1,0 +1,8 @@
+@charset "ISO-8859-1";
+
+#login-form{
+	padding: 25px !important;
+}
+#login-form .center-block {
+	margin: 0 auto;
+}

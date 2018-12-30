@@ -1,0 +1,16 @@
+@charset "ISO-8859-1";
+
+#register-form {
+	padding: 25px !important;
+}
+
+#register-form .center-block {
+	margin: 0 auto;
+}
+
+#register-form .form-group {
+	padding: 25px;
+}
+#register-form .btn {
+	margin:10px auto;
+}

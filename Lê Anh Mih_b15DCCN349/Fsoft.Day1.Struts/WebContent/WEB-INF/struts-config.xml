@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+"http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+<struts-config>
+	<form-beans>
+		<form-bean name="loginForm" type="com.fsoft.minhla1.form.LoginForm" />
+		<form-bean name="registerForm" type="com.fsoft.minhla1.form.RegisterForm" />
+		<form-bean name="addToCartForm" type="com.fsoft.minhla1.form.AddToCartForm" />
+		<form-bean name="saveBookForm" type="com.fsoft.minhla1.form.SaveBookForm" />
+		<form-bean name="searchForm" type="com.fsoft.minhla1.form.SearchForm" />
+	</form-beans>
+	<action-mappings>
+		<action path="/gologin" type="com.fsoft.minhla1.action.GoLoginAction">
+			<forward name="success" path="login" />
+		</action>
+		
+		<action path="/login" type="com.fsoft.minhla1.action.LoginAction"
+			name="loginForm">
+			<forward name="success" path="/goseeall.do" />
+			<forward name="fail" path="login" />
+		</action>
+		
+		<action path="/logout" type="com.fsoft.minhla1.action.LogoutAction">
+			<forward name="success" path="login" />
+		</action>
+		
+		<action path="/goregister" type="com.fsoft.minhla1.action.GoRegisterAction">
+			<forward name="success" path="register" />
+		</action>
+		
+		<action path="/gocart" type="com.fsoft.minhla1.action.GoCartAction">
+			<forward name="success" path="cart" />
+		</action>
+		
+		<action path="/goseeall" type="com.fsoft.minhla1.action.SeeAllBookAction">
+			<forward name="success" path="booklist" />
+		</action>
+		
+		<action path="/gocreate" type="com.fsoft.minhla1.action.SeeAllBookAction">
+			<forward name="success" path="bookdetails" />
+		</action>
+
+		<action path="/register" type="com.fsoft.minhla1.action.RegisterAction"
+			name="registerForm">
+			<forward name="success" path="login" />
+			<forward name="fail" path="register" />
+		</action>
+		
+		<action path="/addtocart" type="com.fsoft.minhla1.action.AddToCartAction"
+			name="addToCartForm">
+			<forward name="success" path="/goseeall.do" />
+		</action>
+		
+		<action path="/removefromcart" type="com.fsoft.minhla1.action.RemoveFromCartAction">
+			<forward name="success" path="/gocart.do" />
+		</action>
+		
+		<action path="/pay" type="com.fsoft.minhla1.action.PayAction">
+			<forward name="success" path="invoice" />
+			<forward name="fail" path="reset.do"></forward>
+		</action>
+		
+		<action path="/exportpdf" type="com.fsoft.minhla1.action.ExportPDFAction">
+			<forward name="success" path="/goseeall.do"></forward>
+		</action>
+		
+		<action path="/sendmail" type="com.fsoft.minhla1.action.SendMailAction">
+			<forward name="success" path="/pay.do"></forward>
+		</action>
+		
+		<action path="/reset" type="com.fsoft.minhla1.action.ResetAction">
+			<forward name="success" path="/goseeall.do"></forward>
+		</action>
+		
+		<action path="/gostatistic" type="com.fsoft.minhla1.action.GoStatisticAction">
+			<forward name="success" path="statistic"></forward>
+		</action>
+		
+		<action path="/godetailstatistichour" type="com.fsoft.minhla1.action.DetailStatisticHourAction">
+			<forward name="success" path="detailstatistic"></forward>
+		</action>
+		
+		<action path="/godetailstatisticweek" type="com.fsoft.minhla1.action.DetailStatisticWeekAction">
+			<forward name="success" path="detailstatistic"></forward>
+		</action>
+		
+		<action path="/godetailstatisticmonth" type="com.fsoft.minhla1.action.DetailStatisticMonthAction">
+			<forward name="success" path="detailstatistic"></forward>
+		</action>
+		
+		<action path="/saveBook" type="com.fsoft.minhla1.action.SaveBookAction"
+			name="saveBookForm">
+			<forward name="success" path="/goseeall.do" />
+			<forward name="fail" path="cart" />
+		</action>
+
+		<action path="/bookDetails" type="com.fsoft.minhla1.action.BookDetailsAction">
+			<forward name="success" path="bookdetails" />
+			<forward name="fail" path="/goseeall.do" />
+		</action>
+		
+		<action path="/deleteBook" type="com.fsoft.minhla1.action.DeleteBookAction">
+			<forward name="success" path="/goseeall.do" />
+		</action>
+		
+		<action path="/search" type="com.fsoft.minhla1.action.SearchAction"
+			name="searchForm">
+			<forward name="success" path="results" />
+			<forward name="fail" path="/goseeall.do" />
+		</action>
+	</action-mappings>
+	
+	
+	<plug-in className="org.apache.struts.tiles.TilesPlugin">
+		<set-property property="definitions-config" value="/WEB-INF/tiles.xml" />
+	</plug-in>
+</struts-config>

@@ -1,0 +1,10 @@
+.header-logo{
+    padding: 10px;
+}
+.header-menu{
+    padding: 10px;
+}
+.bg-header{
+    background-image: url('../res/img/open-book.jpg');
+    background-size:cover; 
+}

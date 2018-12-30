@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>Fsoft.Day1.Struts</display-name>
+  <welcome-file-list>
+    <welcome-file>redirect.jsp</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <servlet-name>action</servlet-name>
+    <servlet-class>
+        org.apache.struts.action.ActionServlet
+    </servlet-class>
+    <init-param>
+        <param-name>config</param-name>
+        <param-value>
+         /WEB-INF/struts-config.xml
+        </param-value>
+    </init-param>
+    <init-param>
+        <param-name>chainConfig</param-name>
+        <param-value>org/apache/struts/tiles/chain-config.xml</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet-mapping>
+       <servlet-name>action</servlet-name>
+       <url-pattern>*.do</url-pattern>
+  </servlet-mapping>
+  
+  <filter>
+    <filter-name>encoding</filter-name>
+    <filter-class>com.fsoft.minhla1.filter.EncodingFilter</filter-class>
+    <init-param>
+        <param-name>encoding</param-name>
+        <param-value>UTF-8</param-value>
+    </init-param>
+ </filter>
+ 
+ <filter-mapping>
+    <filter-name>encoding</filter-name>
+    <url-pattern>/*</url-pattern>
+ </filter-mapping>
+ 
+ <filter>
+ 	<filter-name>logfile</filter-name>
+ 	<filter-class>com.fsoft.minhla1.filter.PayFilter</filter-class>
+ 	<init-param>
+ 		<param-name>LogFile</param-name>
+ 		<param-value>AppLog.log</param-value>
+ 	</init-param>
+ </filter>
+ <filter-mapping>
+ 	<filter-name>logfile</filter-name>
+ 	<url-pattern>/pay.do</url-pattern>
+ </filter-mapping>
+ 
+ 
+ <filter>
+ 	<filter-name>limited</filter-name>
+ 	<filter-class>com.fsoft.minhla1.filter.LimitedFilter</filter-class>
+ </filter>
+ <filter-mapping>
+ 	<filter-name>limited</filter-name>
+ 	<url-pattern>/login.do</url-pattern>
+ </filter-mapping>
+</web-app>
